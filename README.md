@@ -3,7 +3,7 @@
 support for the following:
 
 - Scala/ensime
-- Golang
+- Golang/Gocode
 - Markdown
 - Solarized theme
 - Tabbar mode

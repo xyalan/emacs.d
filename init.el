@@ -147,8 +147,20 @@ middle"
 (add-hook 'go-mode-hook (lambda ()
                           (set (make-local-variable 'company-backends) '(company-go))
                           (company-mode)))
-
+;;autocomplete style
 (setq company-tooltip-limit 20)
 (setq company-idle-delay .3)
 (setq company-echo-delay 0)
 (setq company-begin-commands '(self-insert-command))
+
+;;(require 'window-number)
+;;(window-number-mode)
+
+;; change meta key from alt to command on Mac
+;;------------------The same effect,change meta key on mac---------------------------------
+;;(defconst *is-a-mac* (eq system-type 'darwin))
+;;(when *is-a-mac*
+;;  (setq mac-command-modifier 'meta))
+;;-----------------------------------------------------------------------------------------
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier nil)

@@ -8,7 +8,7 @@
 (require-package 'gitconfig-mode)
 (require-package 'git-messenger) ;; Though see also vc-annotate's "n" & "p" bindings
 (require-package 'git-timemachine)
-
+(require 'load-ibuffer)
 
 ;;read path from shell(for mac os x)
 (when (memq window-system '(mac ns))
@@ -18,7 +18,12 @@
 
 ;;startup in maximized mode
 (custom-set-variables
- '(initial-frame-alist (quote ((fullscreen . maximized)))))
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(initial-frame-alist (quote ((fullscreen . maximized))))
+ '(markdown-command "/usr/local/bin/pandoc"))
 
 ;;-------------------------------------------------------------------
 ;;base configuration(include backup,autosave...)
@@ -41,13 +46,8 @@
 ;;)
 ;;(add-hook 'after-init-hook 'solarized-init)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/solarized")
+(set-frame-parameter nil 'background-mode 'dark)
 (load-theme 'solarized t)
-(add-hook 'after-make-frame-functions
-          (lambda (frame)
-            (setq frame-parameter frame
-                                 'background-mode
-                                 (if (display-graphic-p frame) 'dark 'light))
-            (enable-theme 'solarized)))
 
 ;;If necessary, add JDK_HOME or JAVA_HOME to the environment
 ;;(setenv "JDK_HOME" "/path/to/jdk")
@@ -64,8 +64,7 @@
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(custom-set-variables
- '(markdown-command "/usr/local/bin/pandoc"))
+
 
 ;;company-go
 ;;(require 'company)
@@ -102,6 +101,3 @@
 (require 'workgroups)
 (setq wg-prefix-key (kbd "C-c w"))
 (workgroups-mode 1)
-
-
-

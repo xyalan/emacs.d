@@ -1,5 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
-(require 'define-elpa)
+(require 'load-elpa)
 (require-package 'magit)
 (require-package 'git-blame)
 (require-package 'git-commit-mode)

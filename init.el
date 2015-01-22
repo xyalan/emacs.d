@@ -9,6 +9,7 @@
 (require-package 'git-messenger) ;; Though see also vc-annotate's "n" & "p" bindings
 (require-package 'git-timemachine)
 (require 'load-ibuffer)
+(require 'sql-indent)
 
 ;;read path from shell(for mac os x)
 (when (memq window-system '(mac ns))
@@ -46,7 +47,7 @@
 ;;)
 ;;(add-hook 'after-init-hook 'solarized-init)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/solarized")
-(set-frame-parameter nil 'background-mode 'dark)
+;;(set-frame-parameter nil 'background-mode 'dark)
 (load-theme 'solarized t)
 
 ;;If necessary, add JDK_HOME or JAVA_HOME to the environment

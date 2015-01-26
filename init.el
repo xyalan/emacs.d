@@ -16,6 +16,7 @@
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOROOT")
   (exec-path-from-shell-copy-env "GOPATH"))
+(require 'load-go)
 
 ;;startup in maximized mode
 (custom-set-variables
@@ -66,16 +67,6 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
-
-;;company-go
-;;(require 'company)
-;;(require 'company-go)
-;;only have company-mode enabled in go-mode
-(add-hook 'before-save-hook 'gofmt-before-save)
-(add-hook 'go-mode-hook 'company-mode)
-(add-hook 'go-mode-hook (lambda ()
-                          (set (make-local-variable 'company-backends) '(company-go))
-                          (company-mode)))
 ;;autocomplete style
 (setq company-tooltip-limit 20)
 (setq company-idle-delay .3)

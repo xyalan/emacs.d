@@ -17,6 +17,7 @@
   (exec-path-from-shell-copy-env "GOROOT")
   (exec-path-from-shell-copy-env "GOPATH"))
 (require 'load-go)
+(require 'load-acejump)
 
 ;;startup in maximized mode
 (custom-set-variables

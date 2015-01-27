@@ -8,6 +8,7 @@
 (require-package 'gitconfig-mode)
 (require-package 'git-messenger) ;; Though see also vc-annotate's "n" & "p" bindings
 (require-package 'git-timemachine)
+(require-package 'diminish)
 (require 'load-ibuffer)
 (require 'sql-indent)
 
@@ -18,7 +19,7 @@
   (exec-path-from-shell-copy-env "GOPATH"))
 (require 'load-go)
 (require 'load-acejump)
-
+(require 'load-utils)
 ;;startup in maximized mode
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

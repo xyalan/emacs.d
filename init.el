@@ -29,19 +29,6 @@
  '(initial-frame-alist (quote ((fullscreen . maximized))))
  '(markdown-command "/usr/local/bin/pandoc"))
 
-;;-------------------------------------------------------------------
-;;base configuration(include backup,autosave...)
-(setq backup-inhibited t) 
-(setq auto-save-default nil) 
-(setq inhibit-startup-message t) 
-(setq default-directory (concat (getenv "HOME") "/")) 
-(tool-bar-mode -1) 
-(global-linum-mode t)
-;;tabbar mode
-(require 'tabbar)
-(tabbar-mode 1)
-
-
 ;;------------------------------------------------------------------
 ;;configuration of color,use solarized
 ;;------------------------------------------------------------------

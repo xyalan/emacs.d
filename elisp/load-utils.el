@@ -1,3 +1,15 @@
+;;-------------------------------------------------------------------
+;;base configuration(include backup,autosave...)
+(setq backup-inhibited t)
+(setq auto-save-default nil)
+(setq inhibit-startup-message t)
+(setq default-directory (concat (getenv "HOME") "/"))
+(tool-bar-mode -1)
+(global-linum-mode t)
+;;tabbar mode
+(require 'tabbar)
+(tabbar-mode 1)
+
 (require-package 'unfill)
 (electric-indent-mode 1)
 

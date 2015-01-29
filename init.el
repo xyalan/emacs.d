@@ -65,14 +65,6 @@
 ;;(require 'window-number)
 ;;(window-number-mode)
 
-;; change meta key from alt to command on Mac
-;;------------------The same effect,change meta key on mac---------------------------------
-;;(defconst *is-a-mac* (eq system-type 'darwin))
-;;(when *is-a-mac*
-;;  (setq mac-command-modifier 'meta))
-;;-----------------------------------------------------------------------------------------
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier nil)
 
 ;;jump between windows
 (require 'window-number)

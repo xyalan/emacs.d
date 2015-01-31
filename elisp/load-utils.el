@@ -48,5 +48,7 @@
 (guide-key-mode 1)
 (diminish 'guide-key-mode)
 
+(require 'load-acejump)
+
 
 (provide 'load-utils)

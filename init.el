@@ -1,4 +1,6 @@
+;;set global path
 (add-to-list 'load-path "~/.emacs.d/elisp")
+
 (require 'load-elpa)
 (require-package 'magit)
 (require-package 'git-blame)
@@ -18,7 +20,6 @@
   (exec-path-from-shell-copy-env "GOROOT")
   (exec-path-from-shell-copy-env "GOPATH"))
 (require 'load-go)
-(require 'load-acejump)
 (require 'load-utils)
 ;;startup in maximized mode
 (custom-set-variables

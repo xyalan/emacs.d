@@ -1,3 +1,6 @@
+(setq-default initial-scratch-message
+	      (concat ";; Happy hacking " (or user-login-name "") "!\n\n"))
+
 ;;set global path
 (add-to-list 'load-path "~/.emacs.d/elisp")
 

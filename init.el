@@ -5,19 +5,10 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
 (require 'load-elpa)
-(require-package 'magit)
-(require-package 'git-blame)
-(require-package 'git-commit-mode)
-(require-package 'git-rebase-mode)
-(require-package 'gitignore-mode)
-(require-package 'gitconfig-mode)
-(require-package 'git-messenger) ;; Though see also vc-annotate's "n" & "p" bindings
-(require-package 'git-timemachine)
-(require-package 'diminish)
 (require 'load-ibuffer)
 (require 'sql-indent)
-
-;;read path from shell(for mac os x)
+(require 'load-git)
+;;Read path from shell(for mac os x)
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize)
   (exec-path-from-shell-copy-env "GOROOT")

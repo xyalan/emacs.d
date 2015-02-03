@@ -60,12 +60,6 @@
 ;;(require 'window-number)
 ;;(window-number-mode)
 
-
-;;jump between windows
-(require 'window-number)
-(window-number-mode)
-(window-number-meta-mode) ;;use meta key
-
 ;;workgroups mode
 (require 'workgroups)
 (setq wg-prefix-key (kbd "C-c w"))

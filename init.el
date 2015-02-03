@@ -15,6 +15,7 @@
   (exec-path-from-shell-copy-env "GOPATH"))
 (require 'load-go)
 (require 'load-utils)
+(require 'load-ido)
 ;;startup in maximized mode
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

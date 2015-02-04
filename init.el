@@ -16,6 +16,7 @@
 (require 'load-go)
 (require 'load-utils)
 (require 'load-ido)
+(require 'init-helm)
 ;;startup in maximized mode
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

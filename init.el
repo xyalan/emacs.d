@@ -28,7 +28,7 @@
 ;;(add-hook 'after-init-hook 'solarized-init)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/solarized")
 (set-frame-parameter nil 'background-mode 'dark)
-(load-theme 'solarized)
+(load-theme 'solarized t)
 
 ;;If necessary, add JDK_HOME or JAVA_HOME to the environment
 ;;(setenv "JDK_HOME" "/path/to/jdk")

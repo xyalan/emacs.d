@@ -40,6 +40,7 @@
 (require 'load-ido)
 (require 'init-helm)
 (require 'init-maxframe)
+(require 'init-company)
 ;;------------------------------------------------------------------
 ;;configuration of color,use solarized
 ;;------------------------------------------------------------------
@@ -67,12 +68,6 @@
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;;autocomplete style
-(setq company-tooltip-limit 20)
-(setq company-idle-delay .3)
-(setq company-echo-delay 0)
-(setq company-begin-commands '(self-insert-command))
 
 ;;(require 'window-number)
 ;;(window-number-mode)

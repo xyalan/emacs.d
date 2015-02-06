@@ -31,7 +31,7 @@
 	))
 
 
-;; {{helm-gtags
+;; helm-gtags
 ;; customize
 (autoload 'helm-gtags-mode "helm-gtags" nil t)
 (setq helm-c-gtags-path-style 'relative)
@@ -39,7 +39,7 @@
 (setq helm-c-gtags-read-only t)
 (add-hook 'c-mode-hook (lambda () (helm-gtags-mode)))
 (add-hook 'c++-mode-hook (lambda () (helm-gtags-mode)))
-;; }}
+
 
 
 
@@ -53,7 +53,6 @@
 	      (local-set-key (kbd "C-c C-f") 'helm-gtags-pop-stack)))
 ;; ==end
 (autoload 'helm-c-yas-complete "helm-c-yasnippet" nil t)
-(global-set-key (kbd "C-x C-o") 'helm-find-files)
 (global-set-key (kbd "C-c f") 'helm-for-files)
 (global-set-key (kbd "C-c y") 'helm-c-yas-complete)
 (global-set-key (kbd "C-c i") 'helm-imenu)

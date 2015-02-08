@@ -60,4 +60,6 @@
                      (frame-char-height frame)))))
 
 (add-hook 'window-setup-hook 'maximize-frame t)
+(when (fboundp 'set-scroll-bar-mode)
+  (set-scroll-bar-mode nil))
 (provide 'init-maxframe)

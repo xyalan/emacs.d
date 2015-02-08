@@ -25,6 +25,7 @@
 (require 'init-helm)
 (require 'init-maxframe)
 (require 'init-company)
+(require 'init-window-numbering)
 ;;------------------------------------------------------------------
 ;;configuration of color,use solarized
 ;;------------------------------------------------------------------

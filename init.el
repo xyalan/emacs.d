@@ -14,11 +14,6 @@
 (require 'load-ibuffer)
 (require 'sql-indent)
 (require 'load-git)
-;;Read path from shell(for mac os x)
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize)
-  (exec-path-from-shell-copy-env "GOROOT")
-  (exec-path-from-shell-copy-env "GOPATH"))
 (require 'load-go)
 (require 'load-utils)
 (require 'load-ido)
@@ -26,6 +21,7 @@
 (require 'init-maxframe)
 (require 'init-company)
 (require 'init-window-numbering)
+(require 'init-environment)
 ;;------------------------------------------------------------------
 ;;configuration of color,use solarized
 ;;------------------------------------------------------------------

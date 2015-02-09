@@ -6,7 +6,10 @@
 ;;----------------------------------------------------------------------------
 (setq *is-a-mac* (eq system-type 'darwin))
 (setq *is-cocoa-emacs* (and *is-a-mac* (eq window-system 'ns)))
+(setq *win32* (eq system-type 'windows-nt) )
 
+(require 'cl)
+(require 'init-modeline)
 (require 'load-elpa)
 (require 'load-ibuffer)
 (require 'sql-indent)
@@ -19,6 +22,8 @@
 (require 'init-company)
 (require 'init-window-numbering)
 (require 'init-environment)
+(require 'init-windows)
+(require 'init-misc)
 ;;------------------------------------------------------------------
 ;;configuration of color,use solarized
 ;;------------------------------------------------------------------
@@ -40,8 +45,3 @@
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;;workgroups mode
-(require 'workgroups)
-(setq wg-prefix-key (kbd "C-c w"))
-(workgroups-mode 1)

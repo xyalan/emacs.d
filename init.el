@@ -1,6 +1,3 @@
-(setq-default initial-scratch-message
-	      (concat ";; Happy hacking " (or user-login-name "") "!\n\n"))
-
 ;;set global path
 (add-to-list 'load-path "~/.emacs.d/elisp")
 
@@ -34,12 +31,6 @@
 (set-frame-parameter nil 'background-mode 'dark)
 (load-theme 'solarized t)
 
-;;If necessary, add JDK_HOME or JAVA_HOME to the environment
-;;(setenv "JDK_HOME" "/path/to/jdk")
-;;If necessary, make sure "sbt" and "scala" are in the PATH environment
-;;(setenv "PATH" (concat "/usr/local/sbt/bin:" (getenv "PATH")))
-;;(setenv "PATH" (concat "/path/to/scala/bin:" (getenv "PATH")))
-;;You can also customize `ensime-inf-get-project-root' and `ensime-inf-get-repl-cmd-line'
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
@@ -49,9 +40,6 @@
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-
-;;(require 'window-number)
-;;(window-number-mode)
 
 ;;workgroups mode
 (require 'workgroups)

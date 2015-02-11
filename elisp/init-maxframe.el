@@ -58,7 +58,7 @@
            (within-p (mf-max-display-pixel-height)
                      (+ mf-display-padding-height (frame-pixel-height frame))
                      (frame-char-height frame)))))
-
+(setq mf-max-width 1930) ;;set main width for dual-display
 (add-hook 'window-setup-hook 'maximize-frame t)
 (when (fboundp 'set-scroll-bar-mode)
   (set-scroll-bar-mode nil))

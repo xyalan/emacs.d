@@ -18,7 +18,7 @@
 (setq-default mode-line-format
   (list
     ;; the buffer name; the file name as a tool tip
-    '(:eval (propertize "%b " 'face nil
+    '(:eval (propertize "%b " 'face font-lock-keyword-face
         'help-echo (buffer-file-name)))
 
     ;; line and column
@@ -30,17 +30,17 @@
 
      ;; relative position, size of file
     "["
-    "%p"
-    ;;(propertize "%p" 'face 'font-lock-constant-face) ;; % above top
+    ;;"%p"
+    (propertize "%p" 'face 'font-lock-constant-face) ;; % above top
     "/"
-    "%I"
-    ;;(propertize "%I" 'face 'font-lock-constant-face) ;; size
+    ;;"%I"
+    (propertize "%I" 'face 'font-lock-constant-face) ;; size
     "] "
 
     ;; the current major mode for the buffer.
     "["
 
-    '(:eval (propertize "%m" 'face nil
+    '(:eval (propertize "%m" 'face font-lock-type-face
               'help-echo buffer-file-coding-system))
     "] "
 
@@ -61,7 +61,7 @@
     ;; is this buffer read-only?
     '(:eval (when buffer-read-only
               (concat ","  (propertize "RO"
-                             'face nil
+                             'face font-lock-type-face
                              'help-echo "Buffer is read-only"))))
     "] "
 

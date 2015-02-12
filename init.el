@@ -33,7 +33,7 @@
 (require 'init-environment)
 (require 'init-windows)
 (require 'init-misc)
-(require 'vc-git)
+'(vc-mode vc-mode)
 ;;------------------------------------------------------------------
 ;;configuration of color,use solarized
 ;;------------------------------------------------------------------

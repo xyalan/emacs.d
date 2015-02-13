@@ -1,14 +1,12 @@
-(require-package 'smart-mode-line)
-(sml/setup)
-(sml/apply-theme 'dark)
-
 ;; @see http://emacs-fu.blogspot.com/2011/08/customizing-mode-line.html
 ;; But I need global-mode-string,
 ;; @see http://www.delorie.com/gnu/docs/elisp-manual-21/elisp_360.html
 ;; use setq-default to set it for /all/ modes
 (setq-default mode-line-format
-  (list
+    (list
+
     ;; the buffer name; the file name as a tool tip
+    ;; display directory add (concat  (abbreviate-file-name default-directory) "%b ")
     '(:eval (propertize "%b " 'face font-lock-keyword-face
         'help-echo (buffer-file-name)))
 
@@ -90,6 +88,15 @@
      (defadvice find-tag (after expand-after-find-tag activate compile)
        (save-excursion (hs-show-block)))
      ))
+
+(require-package 'smart-mode-line)
+(sml/setup)
+(sml/apply-theme 'dark)
+(setq sml/vc-mode-show-backend t)
+(setq sml/shorten-modes t)
+(setq sml/shorten-directory t)
+(add-to-list 'sml/replacer-regexp-list '("^~/Work/" ":Work:") t)
+(add-to-list 'sml/replacer-regexp-list '("^~/.emacs.d/" ":EM:") t)
 
 (provide 'init-modeline)
 

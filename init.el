@@ -33,7 +33,7 @@
 (require 'init-environment)
 (require 'init-windows)
 (require 'init-misc)
-s;;(modeline-git-branch-enable)
+;;(modeline-git-branch-enable)
 ;;------------------------------------------------------------------
 ;;configuration of color,use solarized
 ;;------------------------------------------------------------------

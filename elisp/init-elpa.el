@@ -38,4 +38,4 @@ locate PACKAGE."
 
 (package-initialize)
 
-(provide 'load-elpa)
+(provide 'init-elpa)

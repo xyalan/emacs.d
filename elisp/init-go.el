@@ -8,4 +8,4 @@
                           (set (make-local-variable 'company-backends) '(company-go))
                           (company-mode)))
 
-(provide 'load-go)
+(provide 'init-go)

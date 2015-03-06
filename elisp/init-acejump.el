@@ -6,4 +6,4 @@
 (global-set-key (kbd "C-,") 'ace-jump-buffer)
 (global-set-key (kbd "C-.") 'ace-jump-buffer-other-window)
 
-(provide 'load-acejump)
+(provide 'init-acejump)

@@ -8,4 +8,4 @@
 (require-package 'git-timemachine)
 (require-package 'diminish)
 
-(provide 'load-git)
+(provide 'init-git)

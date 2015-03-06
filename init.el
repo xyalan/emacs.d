@@ -25,7 +25,7 @@
 (require 'load-git)
 (require 'load-go)
 (require 'load-utils)
-(require 'load-ido)
+(require 'init-ido)
 (require 'init-helm)
 (require 'init-maxframe)
 (require 'init-company)

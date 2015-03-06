@@ -76,4 +76,4 @@
 
 
 
-(provide 'load-ido)
+(provide 'init-ido)

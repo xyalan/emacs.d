@@ -47,9 +47,6 @@
 (set-frame-parameter nil 'background-mode 'dark)
 (load-theme 'solarized t)
 
-;;(require 'ensime)
-;;(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
-
 ;;-------------------------------------markdown-----------------------------------
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)

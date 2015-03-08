@@ -33,6 +33,7 @@
 (require 'init-environment)
 (require 'init-windows)
 (require 'init-misc)
+(require 'init-ensime)
 ;;(modeline-git-branch-enable)
 ;;------------------------------------------------------------------
 ;;configuration of color,use solarized
@@ -46,8 +47,8 @@
 (set-frame-parameter nil 'background-mode 'dark)
 (load-theme 'solarized t)
 
-(require 'ensime)
-(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+;;(require 'ensime)
+;;(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 ;;-------------------------------------markdown-----------------------------------
 (autoload 'markdown-mode "markdown-mode"

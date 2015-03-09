@@ -34,6 +34,7 @@
 (require 'init-windows)
 (require 'init-misc)
 (require 'init-ensime)
+(require 'init-markdown)
 ;;(modeline-git-branch-enable)
 ;;------------------------------------------------------------------
 ;;configuration of color,use solarized

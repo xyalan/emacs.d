@@ -35,6 +35,7 @@
 (require 'init-misc)
 (require 'init-ensime)
 (require 'init-markdown)
+(require 'init-scheme)
 ;;(modeline-git-branch-enable)
 ;;------------------------------------------------------------------
 ;;configuration of color,use solarized

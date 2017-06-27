@@ -1,56 +1,90 @@
-;;-------------------------------------------------------------------
-;;base configuration(include backup,autosave...)
-(setq backup-inhibited t)
-(setq auto-save-default nil)
-(setq inhibit-startup-message t)
-(setq default-directory (concat (getenv "HOME") "/"))
-(tool-bar-mode -1)
-(global-linum-mode t)
+(if (fboundp 'with-eval-after-load)
+    (defalias 'after-load 'with-eval-after-load)
+  (defmacro after-load (feature &rest body)
+    "After FEATURE is loaded, evaluate BODY."
+    (declare (indent defun))
+    `(eval-after-load ,feature
+       '(progn ,@body))))
 
-(require-package 'unfill)
-(electric-indent-mode 1)
-
-;;automatic delete space when save
-(require-package 'whitespace-cleanup-mode)
-(global-whitespace-cleanup-mode t)
-
-;;browse kill ring
-(require-package 'browse-kill-ring)
-
-;; Don't disable narrowing commands
-(put 'narrow-to-region 'disabled nil)
-(put 'narrow-to-page 'disabled nil)
-(put 'narrow-to-defun 'disabled nil)
-
-;; Show matching parens
-(show-paren-mode 1)
-
-;; change meta key from alt to command on Mac
-;;------------------The same effect,change meta key on mac---------------------------------
-;;(defconst *is-a-mac* (eq system-type 'darwin))
-;;(when *is-a-mac*
-;;  (setq mac-command-modifier 'meta))
-;;-----------------------------------------------------------------------------------------
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier nil)
 
 ;;----------------------------------------------------------------------------
-;; Expand region
+;; Handier way to add modes to auto-mode-alist
 ;;----------------------------------------------------------------------------
-(require-package 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+(defun add-auto-mode (mode &rest patterns)
+  "Add entries to `auto-mode-alist' to use `MODE' for all given file `PATTERNS'."
+  (dolist (pattern patterns)
+    (add-to-list 'auto-mode-alist (cons pattern mode))))
 
-(require-package 'guide-key)
-(setq guide-key/guide-key-sequence '("C-x" "C-c" "C-x 4" "C-x 5" "C-c ;" "C-c ; f" "C-c ' f" "C-x n"))
-(guide-key-mode 1)
-(diminish 'guide-key-mode)
 
-(global-set-key (kbd "C-?") 'help-command)
-(global-set-key (kbd "M-?") 'mark-paragraph)
-;;(global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "M-h") 'backward-kill-word)
+;;----------------------------------------------------------------------------
+;; String utilities missing from core emacs
+;;----------------------------------------------------------------------------
+(defun sanityinc/string-all-matches (regex str &optional group)
+  "Find all matches for `REGEX' within `STR', returning the full match string or group `GROUP'."
+  (let ((result nil)
+        (pos 0)
+        (group (or group 0)))
+    (while (string-match regex str pos)
+      (push (match-string group str) result)
+      (setq pos (match-end group)))
+    result))
 
-(require 'init-acejump)
+(defun sanityinc/string-rtrim (str)
+  "Remove trailing whitespace from `STR'."
+  (replace-regexp-in-string "[ \t\n]+$" "" str))
+
+
+;;----------------------------------------------------------------------------
+;; Find the directory containing a given library
+;;----------------------------------------------------------------------------
+(autoload 'find-library-name "find-func")
+(defun sanityinc/directory-of-library (library-name)
+  "Return the directory in which the `LIBRARY-NAME' load file is found."
+  (file-name-as-directory (file-name-directory (find-library-name library-name))))
+
+
+;;----------------------------------------------------------------------------
+;; Delete the current file
+;;----------------------------------------------------------------------------
+(defun delete-this-file ()
+  "Delete the current file, and kill the buffer."
+  (interactive)
+  (or (buffer-file-name) (error "No file is currently being edited"))
+  (when (yes-or-no-p (format "Really delete '%s'?"
+                             (file-name-nondirectory buffer-file-name)))
+    (delete-file (buffer-file-name))
+    (kill-this-buffer)))
+
+
+;;----------------------------------------------------------------------------
+;; Rename the current file
+;;----------------------------------------------------------------------------
+(defun rename-this-file-and-buffer (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (unless filename
+      (error "Buffer '%s' is not visiting a file!" name))
+    (if (get-buffer new-name)
+        (message "A buffer named '%s' already exists!" new-name)
+      (progn
+        (when (file-exists-p filename)
+         (rename-file filename new-name 1))
+        (rename-buffer new-name)
+        (set-visited-file-name new-name)))))
+
+;;----------------------------------------------------------------------------
+;; Browse current HTML file
+;;----------------------------------------------------------------------------
+(defun browse-current-file ()
+  "Open the current file as a URL using `browse-url'."
+  (interactive)
+  (let ((file-name (buffer-file-name)))
+    (if (and (fboundp 'tramp-tramp-file-p)
+             (tramp-tramp-file-p file-name))
+        (error "Cannot open tramp file")
+      (browse-url (concat "file://" file-name)))))
 
 
 (provide 'init-utils)
